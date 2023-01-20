@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react";
-import styles from "./styles.js";
 import Map from "./Map.jsx";
 import "./App.css"
 
@@ -29,7 +28,7 @@ export default function Modal() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            style={styles.backdrop}
+                            className={"backdrop"}
                             onClick={() => setIsModalOpen(false)}
                         />
                         <motion.div
@@ -37,7 +36,7 @@ export default function Modal() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            style={styles.modal}
+                            className={"modal"}
                         >
                             <div className={"map-cont"}>
                                 <Map/>
