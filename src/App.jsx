@@ -1,11 +1,11 @@
 import './App.css'
-import Map from "./Map.jsx";
+import Modal from "./MapModal.jsx";
 function App() {
 
 
   return (
     <>
-        <Map/>
+        <Modal/>
     </>
   )
 }
