@@ -1,8 +1,10 @@
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React, {useEffect, useState} from "react";
 
-const containerStyle = {width: '700px',
-    height: '600px'
+const containerStyle = {
+    width: '100%',
+    height: '79vh',
+    margin: "20px",
 };
 
 const options = {
@@ -12,7 +14,6 @@ const options = {
 function Map() {
     const [latc, setlat] = useState(0)
     const [longc, setlong] = useState(0)
-    const [showMap, toggleShowMap] = useState(false)
     useEffect(() => {
         if ("geolocation" in navigator) {
 
@@ -37,27 +38,21 @@ function Map() {
         setlat(lat)
         setlong(long)
     }
-    const toggleMap = () => toggleShowMap(prev => !prev)
+
 
     return (
         <>
             <LoadScript
                 googleMapsApiKey="AIzaSyCia3gr_Eu4VMowqTzoORnCm7m5k87KGwI"
             >
-                {showMap && <GoogleMap
+               <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
-                    zoom={100}
+                    zoom={10}
                     onClick={getCoords}
                 >
                    <Marker position={{ lat: latc, lng: longc }}/>
-                </GoogleMap>}
-                <p>Your coordinates</p>
-                <span>latitude: {latc}</span>
-                <br/>
-                <span>longitude: {longc}</span>
-                <br/>
-                <button onClick={toggleMap}>Show Map</button>
+                </GoogleMap>
             </LoadScript>
 
         </>
